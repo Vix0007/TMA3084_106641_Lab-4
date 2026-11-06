@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tma3084_106641_lab_4/contact.dart';
+import 'package:pizzaria/contact.dart';
 
 void main() {
   testWidgets('Contact page displays information', (tester) async {
