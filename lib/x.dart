@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-// TEMPORARY placeholder so the app compiles.
-// It is replaced by the real page from a teammate's branch.
-class XPage extends StatelessWidget {
+class XPage extends StatefulWidget {
   const XPage({super.key});
+
+  @override
+  State<XPage> createState() => _XPageState();
+}
+
+class _XPageState extends State<XPage> {
+  late final WebViewController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(Uri.parse('https://x.com'));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('X (Twitter)')),
-      body: const Center(child: Text('X (Twitter) page coming soon')),
+      body: WebViewWidget(controller: controller),
     );
   }
 }
